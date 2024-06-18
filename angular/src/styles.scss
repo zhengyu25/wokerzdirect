@@ -1,0 +1,108 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  //   font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: Montserrat, Helvetica Neue;
+}
+
+input {
+  color: white !important;
+  font-size: 1.2em !important;
+  &::placeholder {
+    color: white !important;
+  }
+}
+
+mat-error {
+  font-size: 1.2em;
+}
+
+.mat-form-field-label,
+.mat-hint,
+.mat-form-field-prefix .mat-icon,
+.mat-form-field-suffix .mat-icon,
+.mat-select-value,
+.mat-select-arrow {
+  color: white;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  color: #ffffff1a;
+}
+
+.mat-paginator {
+  background: transparent;
+  color: white;
+  .mat-button-disabled {
+    color: white !important;
+    filter: brightness(0.5);
+  }
+}
+
+.mat-dialog-container {
+  background-image: linear-gradient(to top left, #35465c, #10151b);
+}
+
+.status {
+  &.active {
+    color: #4caf50;
+  }
+  // &.completed {
+  //   color: #4caf50;
+  // }
+  // &.failed {
+  //   color: #f44336;
+  // }
+  // &.refunded {
+  //   color: #6c757d;
+  // }
+}
+
+.table {
+  .table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  th,
+  td {
+    white-space: nowrap;
+    background-color: #27293d;
+  }
+
+  overflow-x: scroll;
+}
+
+@media print {
+  body {
+    max-height: 100vh;
+    overflow: hidden;
+    // border: 2px solid red !important;
+
+    .main-panel {
+      border-top: none !important;
+    }
+
+    .main-panel .content {
+      padding: 0 !important;
+      margin: 0 !important;
+      overflow: hidden;
+    }
+
+    #pdfDocument {
+      padding: 0 !important;
+      color: #000 !important;
+    }
+  }
+
+  button,
+  footer {
+    display: none !important;
+  }
+}

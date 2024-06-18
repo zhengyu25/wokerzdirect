@@ -1,0 +1,75 @@
+<div class="login">
+  <div class="logo text-center">
+    <img src="assets/img/logo/logo.png" />
+  </div>
+  <div class="card">
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <div class="card-body">
+        <div class="form-group">
+          <!-- Username -->
+          <mat-form-field class="w-100">
+            <mat-label>{{ lang?.form?.username.label }}</mat-label>
+            <mat-icon matSuffix>email</mat-icon>
+            <input
+              matInput
+              [placeholder]="lang?.form?.username.label"
+              formControlName="username"
+              required
+            />
+
+            <mat-error
+              *ngIf="
+                form.get('username').invalid &&
+                form.get('username').hasError('required')
+              "
+              >{{ lang?.form?.username?.err.required }}</mat-error
+            >
+
+            <mat-error
+              *ngIf="
+                form.get('username').invalid &&
+                form.get('username').hasError('email') &&
+                !form.get('username').hasError('required')
+              "
+            >
+              {{ lang?.form.username?.err.email }}
+            </mat-error>
+          </mat-form-field>
+
+          <!-- PASSWORD -->
+          <mat-form-field class="w-100">
+            <mat-label>{{ lang?.form.password.label }}</mat-label>
+            <input
+              [type]="hidePwd ? 'password' : 'text'"
+              matInput
+              [placeholder]="lang?.form.password.label"
+              required
+              formControlName="password"
+            />
+            <mat-icon matSuffix (click)="hidePwd = !hidePwd">
+              {{ hidePwd ? "visibility" : "visibility_off" }}
+            </mat-icon>
+            <mat-error
+              *ngIf="
+                form.get('password').invalid &&
+                form.get('password').hasError('required')
+              "
+              >{{ lang?.form.password.err.required }}</mat-error
+            >
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="card-footer" style="display: flex; justify-content: flex-end">
+        <button
+          mat-raised-button
+          type="submit"
+          class="btn btn-primary mat-raised-button mat-button-base"
+          [disabled]="form.invalid || isSubmit"
+        >
+          {{ lang?.btn?.login }}
+          <i *ngIf="isSubmit" class="fas fa-spinner fa-spin"></i>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

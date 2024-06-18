@@ -1,0 +1,13 @@
+<input type="file" (change)="onFileSelected($event)" />
+<div *ngIf="data">
+  <table>
+    <tr *ngFor="let item of data">
+      <td>
+        {{ item.code }}
+      </td>
+      <td>
+        {{ item.desc }}
+      </td>
+    </tr>
+  </table>
+</div>

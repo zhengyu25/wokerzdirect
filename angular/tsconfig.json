@@ -1,0 +1,54 @@
+// {
+//   "compileOnSave": false,
+//   "compilerOptions": {
+//     "baseUrl": "src",
+//     // "baseUrl": "./",
+//     "outDir": "./dist/out-tsc",
+//     "sourceMap": true,
+//     "declaration": false,
+//     "module": "es2015",
+//     "moduleResolution": "node",
+//     "emitDecoratorMetadata": true,
+//     "experimentalDecorators": true,
+//     "importHelpers": true,
+//     "target": "es5",
+//     "typeRoots": ["node_modules/@types"],
+//     "lib": ["es2018", "dom"]
+//   },
+//   "files": ["src/main.ts", "src/polyfills.ts"],
+//   "include": ["src/**/*.d.ts"],
+//   "paths": {
+//     "app/shared/*": ["app/shared/*"],
+//     "app/services/*": ["app/services/*"],
+//     "app/smartContract/*": ["app/smart-contract"],
+//     "assets/*": ["assets/images/*"],
+//     "env/*": ["environments/*"]
+//   }
+// }
+// /* To learn more about this file see: https://angular.io/config/tsconfig. */
+
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "src",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "module": "es2020",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es5",
+    "typeRoots": ["node_modules/@types"],
+    "paths": {
+      "app/shared/*": ["app/shared/*"],
+      "app/services/*": ["app/services/*"],
+      "assets/*": ["assets/images/*"],
+      "env/*": ["environments/*"]
+    },
+    "allowSyntheticDefaultImports": true,
+    "lib": ["es2017", "dom"],
+    "types": ["@angular/localize"]
+  }
+}

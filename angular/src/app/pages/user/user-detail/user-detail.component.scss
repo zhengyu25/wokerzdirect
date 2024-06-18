@@ -1,0 +1,19 @@
+.table-header {
+  justify-content: flex-end;
+}
+
+.avatar-container{
+  .avatar {
+    &.active {
+      border-color: #00f2c3;
+    }
+    &.suspend {
+      border-color: #ff8d72;
+    }
+  }
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}

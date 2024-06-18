@@ -1,0 +1,8 @@
+::ng-deep .cdk-overlay-container {
+  position: fixed;
+  z-index: 10000;
+}
+
+::ng-deep .cdk-overlay-pane {
+  margin-bottom: 60px !important;
+}

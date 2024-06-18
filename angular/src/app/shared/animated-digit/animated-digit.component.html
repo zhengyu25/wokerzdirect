@@ -1,0 +1,5 @@
+<div #animatedDigit class="animatedDigit">
+  <!-- <span *ngIf="currency">{{ digit | currency : "$ " | ifEmpty : "-" }}</span> -->
+
+  <span>{{ digit | number : "1.2-4" | ifEmpty : "-" }}</span>
+</div>

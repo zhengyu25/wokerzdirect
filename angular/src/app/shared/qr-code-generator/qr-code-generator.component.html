@@ -1,0 +1,33 @@
+<div *ngIf="content">
+  <ngx-kjua
+    class="d-flex justify-content-center"
+    [text]="content"
+    [mode]="mode"
+    [image]="imageToShow"
+  >
+  </ngx-kjua>
+  <div
+    *ngIf="copyLink"
+    class="d-flex justify-content-center"
+    style="margin-top: 5px; margin-bottom: 5px"
+  >
+    <span
+      style="
+        text-align: center;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      "
+    >
+      {{ content }}
+    </span>
+    <span
+      mat-icon-button
+      (click)="openSnackBar()"
+      [cdkCopyToClipboard]="content"
+      type="button"
+    >
+      <mat-icon>content_copy</mat-icon>
+    </span>
+  </div>
+</div>

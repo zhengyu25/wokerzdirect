@@ -1,0 +1,22 @@
+.login {
+  width: 80%;
+  margin: 15vh auto;
+  max-width: 700px;
+
+  .card-title {
+    font-size: 2rem;
+    font-weight: 800;
+    color: white;
+  }
+
+  .logo {
+    width: 150px;
+    height: 200px;
+    margin: auto;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+}

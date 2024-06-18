@@ -1,0 +1,50 @@
+<!-- <div class="timer">
+    <span id="days"> {{daysToDday}} </span>Day(s)
+    <span id="hours"> {{hoursToDday}} </span>Hrs 
+    <span id="minutes"> {{minutesToDday}} </span>Min
+    <span id="seconds"> {{secondsToDday}} </span>S
+</div>
+ -->
+
+<div>
+  <div>
+    {{ title ?? lang?.title | ifEmpty : "" }}
+  </div>
+  <div
+    class="countdown-timer"
+    [ngClass]="{ shake: timeDifference <= shakeAlertIn }"
+  >
+    <!-- Day -->
+    <div class="days">
+      <div>
+        {{ daysToDday || null | number : "2.0-2" | ifEmpty : "" }}
+      </div>
+      <div *ngIf="daysToDday > 0" class="seperator">
+        {{ lang?.days | ifEmpty : ":" }}
+      </div>
+    </div>
+    <!-- Hour -->
+    <div class="hours">
+      <div>
+        {{ hoursToDday | number : "2.0-2" | ifEmpty : "" }}
+      </div>
+      <div class="seperator">{{ lang?.hours | ifEmpty : ":" }}</div>
+    </div>
+    <!-- Minutes -->
+    <div class="minutes">
+      <div>
+        {{ minutesToDday | number : "2.0-2" | ifEmpty : "" }}
+      </div>
+      <div class="seperator">{{ lang?.mins | ifEmpty : ":" }}</div>
+    </div>
+    <!-- Seconds -->
+    <div class="seconds">
+      <div>
+        {{ secondsToDday | number : "2.0-2" | ifEmpty : "" }}
+      </div>
+      <div *ngIf="lang?.sec" class="seperator">
+        {{ lang?.sec | ifEmpty : ":" }}
+      </div>
+    </div>
+  </div>
+</div>

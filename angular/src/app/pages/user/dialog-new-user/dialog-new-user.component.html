@@ -1,0 +1,115 @@
+<h2 mat-dialog-title>{{ lang?.title }}</h2>
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <mat-dialog-content>
+    <mat-form-field class="col-12">
+      <mat-label>{{ lang?.form.email.label }}</mat-label>
+      <input
+        matInput
+        [placeholder]="lang?.form.email.label"
+        required
+        formControlName="email"
+      />
+      <mat-icon matSuffix> email </mat-icon>
+      <mat-error
+        *ngIf="
+          form.get('email').invalid && form.get('email').hasError('required')
+        "
+        >{{ lang?.form.email.err.required }}</mat-error
+      >
+      <mat-error
+        *ngIf="form.get('email').invalid && form.get('email').hasError('email')"
+        >{{ lang?.form.email.err.required }}</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field class="col-12">
+      <mat-label>{{ lang?.form.name.label }}</mat-label>
+      <input
+        matInput
+        [placeholder]="lang?.form.name.label"
+        required
+        formControlName="name"
+      />
+      <mat-error
+        *ngIf="
+          form.get('name').invalid && form.get('name').hasError('required')
+        "
+        >{{ lang?.form.name.err.required }}</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field class="col-12">
+      <mat-label>{{ lang?.form.password.label }}</mat-label>
+      <input
+        [type]="hideNewPassword ? 'password' : 'text'"
+        matInput
+        [placeholder]="lang?.form.password.label"
+        required
+        formControlName="password"
+      />
+      <mat-icon
+        class="cursor-pointer"
+        matSuffix
+        (click)="hideNewPassword = !hideNewPassword"
+      >
+        {{ hideNewPassword ? "visibility" : "visibility_off" }}
+      </mat-icon>
+      <mat-error
+        *ngIf="
+          form.get('password').invalid &&
+          form.get('password').hasError('required')
+        "
+        >{{ lang?.form.password.err.required }}</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field class="col-12">
+      <mat-label>{{ lang?.form.c_password.label }}</mat-label>
+      <input
+        [type]="hideConfirmPassword ? 'password' : 'text'"
+        matInput
+        [placeholder]="lang?.form.c_password.label"
+        required
+        formControlName="c_password"
+      />
+      <mat-icon
+        class="cursor-pointer"
+        matSuffix
+        (click)="hideConfirmPassword = !hideConfirmPassword"
+      >
+        {{ hideConfirmPassword ? "visibility" : "visibility_off" }}
+      </mat-icon>
+      <mat-error
+        *ngIf="
+          form.get('c_password').invalid &&
+          form.get('c_password').hasError('required')
+        "
+        >{{ lang?.form.c_password.err.required }}</mat-error
+      >
+      <mat-error
+        *ngIf="
+          form.get('c_password').invalid &&
+          form.get('c_password').hasError('mustMatch')
+        "
+        >{{ lang?.form.c_password.err.mustMatch }}</mat-error
+      >
+    </mat-form-field>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button
+      class="btn btn-danger btn-simple animation-on-hover mr-1"
+      mat-dialog-close
+    >
+      {{ lang?.btn.close }}
+    </button>
+    <button
+      class="btn btn-success animation-on-hover mr-1"
+      type="submit"
+      [disabled]="form.invalid || isSubmit"
+      cdkFocusInitial
+    >
+      <span [ngClass]="{ 'pr-2': isSubmit }">{{ lang?.btn.submit }}</span>
+      <i *ngIf="isSubmit" class="fas fa-spinner fa-spin"></i>
+    </button>
+  </mat-dialog-actions>
+</form>
